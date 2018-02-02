@@ -12,7 +12,7 @@ flavors <- {
       light =
         c(gray = "#CCCCCC",
           mint = "#C5FAEE",
-          chocolate = "#CCB8A1")
+          chocolate = "#CCB8A1"),
       medium =
         c(gray = "#737373",
           mint = "#AAD4CB",
