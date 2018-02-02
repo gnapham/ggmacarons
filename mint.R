@@ -1,12 +1,21 @@
 #' Title
 #'
+#' @param palette 
+#'
+#' @export
+few_pal <- function(palette="medium") {
+  ## The first value, gray, is used for non-data parts.
+  values <- flavors$mint[[palette]]
+  n <- length(values)
+  manual_pal(unname(values[2:n]))
+}
+
+#' Title
+#'
 #' @param base_size 
 #' @param base_family 
 #'
-#' @return
 #' @export
-#'
-#' @examples
 theme_mint <- function(base_size=8, base_family="Arial") {
   
   colors <- flavors$mint
@@ -25,4 +34,24 @@ theme_mint <- function(base_size=8, base_family="Arial") {
       strip.background = element_rect(fill = "white", colour = NA)
     )
   
+}
+
+#' Title
+#'
+#' @param palette 
+#' @param ... 
+#'
+#' @export
+scale_colour_mint <- function(palette="medium", ...) {
+  discrete_scale("colour", "mint", few_pal(palette), ...)
+}
+
+#' @export
+#' @rdname scale_mint
+scale_color_few <- scale_colour_few
+
+#' @export
+#' @rdname scale_mint
+scale_fill_few <- function(palette="light", ...) {
+  discrete_scale("fill", "few", few_pal(palette), ...)
 }
